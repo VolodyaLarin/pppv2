@@ -271,10 +271,10 @@ int main(int argc, char ** argv)
 	SAFE_CALL(cudaEventElapsedTime(&elapsedTime_total, start_total, stop_total));
 	SAFE_CALL(cudaEventElapsedTime(&elapsedTime, start, stop));
 
-	printf("GPU processing clean time: %14.4f milliseconds\n", elapsedTime*1000);
-	printf("GPU processing total time: %14.4f milliseconds\n", elapsedTime_total*1000);
-	printf("On GPU used  : %14.4f MFLOPS\n", ( ((float) n)*p*m ) / (elapsedTime*1000) );
-	printf("On GPU+ used : %14.4f MFLOPS\n", ( ((float)n) *p*m )/(elapsedTime_total*1000) );
+	printf("GPU processing clean time: %14.4f milliseconds\n", elapsedTime);
+	printf("GPU processing total time: %14.4f milliseconds\n", elapsedTime_total);
+	printf("On GPU used  : %14.4f MFLOPS\n", ( ((float) n)*p*m ) / (elapsedTime) );
+	printf("On GPU+ used : %14.4f MFLOPS\n", ( ((float)n) *p*m )/(elapsedTime_total) );
 
 	float *Res = (float*) malloc(m*p*sizeof(float));
 
